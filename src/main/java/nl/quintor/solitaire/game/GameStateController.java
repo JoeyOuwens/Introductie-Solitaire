@@ -1,5 +1,6 @@
 package nl.quintor.solitaire.game;
 
+import nl.quintor.solitaire.game.moves.ex.MoveException;
 import nl.quintor.solitaire.models.deck.Deck;
 import nl.quintor.solitaire.models.deck.DeckType;
 import nl.quintor.solitaire.models.state.GameState;
@@ -24,8 +25,11 @@ public class GameStateController {
      * @return a new GameState object, ready to go
      */
     public static GameState init(){
+        GameState gameState = new GameState();
+
+
         // TODO: Write implementation
-        return new GameState();
+        return gameState;
     }
 
     /**
@@ -56,6 +60,6 @@ public class GameStateController {
      * @param gameState GameState object of which it is determined if the game has been won
      */
     public static void detectGameWin(GameState gameState){
-        // TODO: Write implementation
+            // TODO: Write implementation
     }
 }

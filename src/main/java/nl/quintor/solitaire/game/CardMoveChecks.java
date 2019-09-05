@@ -26,12 +26,18 @@ public class CardMoveChecks {
      * The destination location has to be the stock header, a stack header or a column header (the column row is not
      * relevant because cards can only be added at the end of a column). The method verifies the syntax using regular
      * expressions.
-     *
+     *    [M source destination]
      * @param input the user input, split on the space character, cast to uppercase
      * @throws MoveException on syntax error
      */
     public static void checkPlayerInput(String[] input) throws MoveException{
+        if(input[0] == "M"){
+            if(input[1] == "Z") throw new MoveException("Invalid Move syntax. \"Z\" is not a valid source location.\nSee H̲elp for instructions.");
+            if(input[2] == "Z") throw new MoveException("Invalid Move syntax. \"Z\" is not a valid destination location.\nSee H̲elp for instructions.");
+        }
         // TODO: Write implementation
+
+
     }
 
     /**
@@ -50,8 +56,7 @@ public class CardMoveChecks {
         if (destinationDeck.getDeckType() == DeckType.STOCK) throw new MoveException("You can't move cards to the stock");
         if (sourceDeck.isEmpty()) throw new MoveException("You can\'t move a card from an empty deck");
         if (sourceCardIndex + 1 <= sourceDeck.getInvisibleCards()) throw new MoveException("You can't move an invisible card");
-        if (sourceCardIndex+2 < sourceDeck.size() ) throw new MoveException("You can't move more than 1 card at a time to a Stack Pile");
-
+        if (sourceCardIndex+2 < sourceDeck.size()) throw new MoveException("You can't move more than 1 card at a time to a Stack Pile");
     }
 
     /**

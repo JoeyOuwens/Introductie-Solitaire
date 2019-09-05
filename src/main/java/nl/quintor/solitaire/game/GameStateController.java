@@ -28,7 +28,7 @@ public class GameStateController {
         GameState gameState = new GameState();
 
 
-        // TODO: Write implementation
+
         return gameState;
     }
 
@@ -60,6 +60,9 @@ public class GameStateController {
      * @param gameState GameState object of which it is determined if the game has been won
      */
     public static void detectGameWin(GameState gameState){
-            // TODO: Write implementation
+           if(gameState.getStock().getInvisibleCards() == 0 &&){
+               gameState.setGameWon(true);
+               gameState.setEndTime(LocalDateTime.now());
+           }
     }
 }

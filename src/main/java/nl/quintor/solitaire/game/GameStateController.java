@@ -26,9 +26,6 @@ public class GameStateController {
      */
     public static GameState init(){
         GameState gameState = new GameState();
-
-
-
         return gameState;
     }
 
@@ -49,6 +46,7 @@ public class GameStateController {
      * @param gameState GameState object that the score penalty is applied to
      */
     public static void applyBonusScore(GameState gameState){
+
         // TODO: Write implementation
     }
 
@@ -60,7 +58,7 @@ public class GameStateController {
      * @param gameState GameState object of which it is determined if the game has been won
      */
     public static void detectGameWin(GameState gameState){
-           if(gameState.getStock().getInvisibleCards() == 0 &&){
+           if(gameState.getStock().getInvisibleCards() == 0){
                gameState.setGameWon(true);
                gameState.setEndTime(LocalDateTime.now());
            }

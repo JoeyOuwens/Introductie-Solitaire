@@ -70,6 +70,9 @@ public class CardMoveChecks {
      * @throws MoveException on illegal move
      */
     public static void cardLevelChecks(Deck targetDeck, Card cardToAdd) throws MoveException {
+        if(targetDeck.getDeckType() != DeckType.STACK || targetDeck.getDeckType() != DeckType.COLUMN) throw new MoveException("Target deck is neither Stack nor Column.");
+        else if (targetDeck.getDeckType() == DeckType.STACK && targetDeck.toString().contains("[]")) throw new MoveException("An Ace has to be the first card of a Stack Pile");
+
 
         // TODO: Write implementation
     }
@@ -84,7 +87,9 @@ public class CardMoveChecks {
      * @throws MoveException on illegal move
      */
     static void checkStackMove(Card targetCard, Card cardToAdd) throws MoveException {
-        // TODO: Write implementation
+        if (opposingColor(targetCard, cardToAdd)){
+            if(targetCard.getRank().compareTo(cardToAdd.getRank()) == 1) throw new MoveException("HELLO");
+        }
     }
 
     /**
